@@ -26,8 +26,8 @@ class Stack_Implementation
             st->Top= -1;            //default contructor to create a stack.
         }                           // Top = -1 to indicate Stack is empty.
 
-    int IsFull() const;        
-    int IsEmpty() const;
+    bool IsFull() const;        
+    bool IsEmpty() const;
     void Push(int n);  // to add an element in the stack from the top(upmost element)
     void Pop();        // to remove an element in the stack from the top(upmost element)
     void Display() const;  //traverse through the contents of the stack

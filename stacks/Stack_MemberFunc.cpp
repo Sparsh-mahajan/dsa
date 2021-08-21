@@ -1,15 +1,15 @@
 #include "Stack_header.hpp"
 
-int Stack_imp::IsEmpty() const
+bool Stack_imp::IsEmpty() const
 {
-    if(st->Top == -1) { return 1; }
-    else { return 0; }
+    if(st->Top == -1) { return true; }
+    else { return false; }
 }
 
-int Stack_imp::IsFull() const
+bool Stack_imp::IsFull() const
 {
-    if(st->Top == MAX - 1) { return 1; }
-    else { return 0; }
+    if(st->Top == MAX - 1) { return true; }
+    else { return false; }
 }
 
 void Stack_imp::Push(int n)
