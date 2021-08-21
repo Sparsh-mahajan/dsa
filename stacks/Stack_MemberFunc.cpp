@@ -44,6 +44,11 @@ void Stack_imp::Pop()
 
 void Stack_imp::Display() const
 {
+    if( IsEmpty() )
+    {
+        std::cout<<"\nstack is empty";
+        return;
+    }
     for(int i =0 ; i < size ; i++)
         std::cout<<st->Item[i]<<" ";
     std::cout<<"\n";
