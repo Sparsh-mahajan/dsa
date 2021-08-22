@@ -65,7 +65,6 @@ void Queue::Display() const
     for( int i = Top ; i <= Rear ; i++ )
         std::cout<<Item[i]<<" ";
     std::cout<<"\n";
-    
 }
 
 bool Queue::IsHalfEmpty() const
