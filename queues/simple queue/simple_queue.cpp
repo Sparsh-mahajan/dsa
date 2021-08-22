@@ -8,7 +8,7 @@ bool Queue::IsEmpty() const
 
 bool Queue::IsFull() const
 {
-    if( Top==0 && Rear == MAX -1) { return true; }
+    if( Rear == MAX -1 ) { return true; }
     else { return false; }
 }
 
@@ -25,7 +25,7 @@ void Queue::Enqueue(int n)
         { 
             Shift();
         }
-        Top += 1;
+        if( IsEmpty() ){ Top += 1; }
         Rear += 1;
         Item[Rear] = n;
         size += 1;
