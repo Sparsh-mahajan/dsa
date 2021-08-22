@@ -21,9 +21,14 @@ void Queue::Enqueue(int n)
     }
     else
     {
+        if( IsHalfEmpty() ) 
+        { 
+            Shift();
+        }
         Top += 1;
         Rear += 1;
         Item[Rear] = n;
+        size += 1;
     }
 }
 
@@ -45,6 +50,7 @@ void Queue::Dequeue()
         {
             std::cout<<"\nthe element that was deleted is "<<Item[Top];
             Top += 1;
+            size -= 1;
         }    
     }
 }
@@ -60,4 +66,17 @@ void Queue::Display() const
         std::cout<<Item[i]<<" ";
     std::cout<<"\n";
     
+}
+
+bool Queue::IsHalfEmpty() const
+{
+    if(Rear == MAX -1 && Top != 0) { return true; }
+    return false;
+}
+
+void Queue::Shift()
+{
+    int diff = Top;
+    for(int i = 0 ; i <= size ; i++ )
+        Item[i] = Item[i + diff];
 }

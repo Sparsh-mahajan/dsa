@@ -9,7 +9,7 @@ class Queue
 {
     private:
         int Item[MAX];
-        int Top, Rear;
+        int Top, Rear, size = 0;
     public:
         Queue()
         {
@@ -21,6 +21,8 @@ class Queue
     void Enqueue(int n);
     void Dequeue();
     void Display() const;
+    bool IsHalfEmpty() const;
+    void Shift();
 };
 
 #endif
