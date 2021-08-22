@@ -8,7 +8,7 @@ bool Queue::IsEmpty() const
 
 bool Queue::IsFull() const
 {
-    if( Rear == MAX -1 ) { return true; }
+    if( Top==0 && Rear == MAX -1) { return true; }
     else { return false; }
 }
 
