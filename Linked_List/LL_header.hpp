@@ -41,6 +41,11 @@ class Linked_List
     
     node* BinarySearch(int key) const;
     
+    void BubbleSort(node* head);
+
+    void DeleteFromEnd();
+
+    void DeleteFromFront();
 };
 
 #endif

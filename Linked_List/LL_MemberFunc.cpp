@@ -6,20 +6,20 @@ node* Linked_List::GetTail() const { return tail; }
 
 void Linked_List::Add(int n)
 {
-        node* temp= new node;
-        temp->data=n;         //initializing the new node
-        temp->next=NULL;      //last node will always point to null
-        
-        if(head==NULL)
-        {
-            head=temp;       //if the node is 1st then both head and tail 
-            tail=temp;       //will point to it.
-        }
-        else
-        {
-            tail->next=temp;  
-            tail=tail->next;
-        }
+    node* temp= new node;
+    temp->data=n;         //initializing the new node
+    temp->next=NULL;      //last node will always point to null
+    
+    if(head==NULL)
+    {
+        head=temp;       //if the node is 1st then both head and tail 
+        tail=temp;       //will point to it.
+    }
+    else
+    {
+        tail->next=temp;  
+        tail=tail->next;
+    }
 }  
 
 void Linked_List::AddFromFront(int n)
@@ -53,10 +53,7 @@ node* Linked_List::LinearSearch(int key) const
     node* searchptr = head;
     while(searchptr != NULL)
     {
-        if(searchptr->data == key)
-        {
-            return searchptr;
-        }
+        if(searchptr->data == key) { return searchptr; }
         searchptr = searchptr->next;
     }
         return NULL;
@@ -86,26 +83,47 @@ node* Linked_List::BinarySearch(int key) const
     node* mid = FindMiddleElement(start, last); 
     do
     {
-        if(mid == NULL) 
-        { 
-            return NULL; 
-        }
+        if(mid == NULL) {  return NULL; }
 
+        if(mid->data == key) { return mid; }
 
-        if(mid->data == key)
-        {
-            return mid;
-        }
-        else if(mid->data > key)
-        {
-            last = mid;
-        }
-        else
-        {
-            start = mid->next;
-        }
+        else if(mid->data > key) { last = mid; }
+
+        else { start = mid->next; }
         mid = FindMiddleElement(start, last);
     }
     while(last != start);
     return NULL;
+}
+
+void Linked_List::BubbleSort(node * ptr) 
+{
+    node * CurrentNode = ptr;
+    if(!CurrentNode) { return; }
+    else
+    {
+        BubbleSort(CurrentNode->next);
+        node* Index = head;
+        while(Index != CurrentNode)
+        {
+            if(Index->data > Index->next->data)
+            {
+                std::swap(Index->data, Index->next->data);
+            }
+            Index = Index->next;
+        }
+    }
+}
+
+void Linked_List::DeleteFromEnd()
+{
+    node* temp = head;
+    while(temp->next != tail) { temp = temp->next; }
+    temp->next = NULL;
+    tail = temp;
+}
+
+void Linked_List::DeleteFromFront()
+{
+    head = head->next;
 }
